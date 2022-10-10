@@ -1,0 +1,6 @@
+PUT http://localhost:3000/cliente/f5edccef-0f41-468c-a7ce-e5d62bc4b2c4
+content-type: application/json
+
+{
+    "nombre": "Gerardo Emman"
+}

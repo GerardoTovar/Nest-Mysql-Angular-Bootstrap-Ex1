@@ -1,0 +1,8 @@
+POST http://localhost:3000/cliente-auto
+content-type: application/json
+
+{
+    "precio_compra": 400,
+    "clienteId": "f5edccef-0f41-468c-a7ce-e5d62bc4b2c4",
+    "autoId": "7c69855b-e169-4a23-a6f5-903818de78e2"
+}

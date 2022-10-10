@@ -1,0 +1,6 @@
+PUT http://localhost:3000/auto/7c69855b-e169-4a23-a6f5-903818de78e2
+content-type: application/json
+
+{
+    "modelo": "audi nuevo 1"
+}

@@ -1,0 +1,14 @@
+a {
+  color: white;
+}
+a:hover {
+    color: gray;
+    font-weight: 600;
+}
+
+.activePage {
+    color: black;
+    font-weight: 600;
+}
+
+

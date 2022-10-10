@@ -1,0 +1,2 @@
+GET http://localhost:3000/cliente/615952ac-054e-40c2-b62a-efbcc96b9873
+content-type: application/json

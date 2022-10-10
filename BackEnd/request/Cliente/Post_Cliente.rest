@@ -1,0 +1,11 @@
+POST http://localhost:3000/cliente
+content-type: application/json
+
+{
+    "nombre": "Gerardo",
+    "apellido": "Tovar",
+    "edad": 27,
+    "sexo": "M",
+    "direccion": "TECHNOLOGY #22",
+    "activo": true
+}

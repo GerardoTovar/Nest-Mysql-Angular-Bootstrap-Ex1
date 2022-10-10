@@ -1,0 +1,12 @@
+POST http://localhost:3000/auto
+content-type: application/json
+
+{
+    "marca": "Audi",
+    "modelo": "must be a string",
+    "color": "Red",
+    "no_pasajeros": 2,
+    "no_puertas": 4,
+    "precio": 200,
+    "activo": true
+}

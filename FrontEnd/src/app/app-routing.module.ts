@@ -4,7 +4,7 @@ import { AutoComponent } from './components/auto/auto.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 
 const routes: Routes = [
-  { path: '', component: AutoComponent},
+  { path: '', component: ClienteComponent},
   { path: 'autos', component: AutoComponent},
   { path: 'clientes', component: ClienteComponent},
 ];

@@ -6,7 +6,6 @@
         <th scope="col">id</th>
         <th scope="col">nombre</th>
         <th scope="col">apellido</th>
-        <th scope="col">color</th>
         <th scope="col">edad</th>
         <th scope="col">sexo</th>
         <th scope="col">fecha_registro</th>
@@ -23,9 +22,8 @@
         <td>{{ cliente.apellido }}</td>
         <td>{{ cliente.edad }}</td>
         <td>{{ cliente.sexo }}</td>
-        <td>{{ cliente.fecha_registro }}</td>
+        <td>{{ cliente.fecha_registro |date: "dd/MM/yyyy" }}</td>
         <td>{{ cliente.direccion }}</td>
-        <td>{{ cliente.activo }}</td>
         <td>
           <span *ngIf="cliente.activo; else elseBlock">SI</span>
           <ng-template #elseBlock>NO</ng-template>

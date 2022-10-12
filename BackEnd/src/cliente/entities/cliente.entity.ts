@@ -27,6 +27,9 @@ export class Cliente {
   @Column({ type: 'varchar', length: 100 })
   direccion!: string;
 
+  @Column({ type: 'bool', default: true })
+  activo: boolean;
+
   @CreateDateColumn({ type: 'timestamp', nullable: false })
   fecha_registro!: Date;
 

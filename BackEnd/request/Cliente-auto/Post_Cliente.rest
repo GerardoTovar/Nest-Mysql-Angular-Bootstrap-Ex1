@@ -3,6 +3,6 @@ content-type: application/json
 
 {
     "precio_compra": 400,
-    "clienteId": "f5edccef-0f41-468c-a7ce-e5d62bc4b2c4",
-    "autoId": "7c69855b-e169-4a23-a6f5-903818de78e2"
+    "clienteId": "58aaab6b-fe1e-4554-b6e0-91624e85d07a",
+    "autoId": "658147b1-91dd-4728-aba2-61395440ab87"
 }

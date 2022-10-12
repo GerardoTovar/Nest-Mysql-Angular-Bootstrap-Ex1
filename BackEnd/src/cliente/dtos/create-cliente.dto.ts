@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsInt, IsString } from 'class-validator';
+import { IsBoolean, IsInt, IsString } from 'class-validator';
 
 export class CreateClienteDto {
   @IsString()
@@ -15,4 +15,7 @@ export class CreateClienteDto {
 
   @IsString()
   direccion: string;
+
+  @IsBoolean()
+  activo: boolean;
 }

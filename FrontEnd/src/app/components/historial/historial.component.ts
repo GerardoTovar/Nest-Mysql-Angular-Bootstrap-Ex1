@@ -33,12 +33,16 @@ export class HistorialComponent implements OnInit {
     }
     var hist: any = [];
     const search = this.searchText.toLocaleLowerCase();
-    this.historales.filter((row: any) => {
+    this.backuphistoriales.filter((row: any) => {
+      var newRow = {...row};
+      var backudate = newRow.fecha_registro;
+      newRow.fecha_registro = (new Date(newRow.fecha_registro)).toLocaleDateString();
       var found = false;
-      Object.keys(row).forEach(function (key) {
-        if (String(row[key]).toLocaleLowerCase().includes(search) && !found) {
+      Object.keys(newRow).forEach(function (key) {
+        if (String(newRow[key]).toLocaleLowerCase().includes(search) && !found) {
           found = true;
-          return hist.push(row);
+          newRow.fecha_registro = backudate;
+          return hist.push(newRow);
         }
       });
     });

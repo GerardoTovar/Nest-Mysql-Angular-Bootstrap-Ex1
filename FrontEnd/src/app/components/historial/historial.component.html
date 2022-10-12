@@ -1,0 +1,29 @@
+<input class="form-control mt-2 mb-2" id="myFilter" type="text" [(ngModel)]="searchText"  (input)="Search()" placeholder="Search by name" /> 
+<div class="table-responsive p-3">
+  <table class=" TableCornerRadios table table-bordered table-hover" data-filter-control="true" data-show-search-clear-button="true">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">clienteId</th>
+        <th scope="col">autoId</th>
+        <th scope="col">precio_compra</th>
+        <th scope="col">fecha_registro</th>
+        <th scope="col">nombre</th>
+        <th scope="col">marca</th>
+      </tr>
+    </thead>
+    <tbody style="background-color: white;">
+      <tr *ngFor="let historial of historales">
+        <th scope="row">{{ historial.id }}</th>
+        <td>{{ historial.clienteId }}</td>
+        <td>{{ historial.autoId }}</td>
+        <td>{{ historial.precio_compra }}</td>
+        <td>{{ historial.fecha_registro |date: "dd/MM/yyyy" }}</td>
+        <td>{{ historial.nombre }}</td>
+        <td>{{ historial.marca }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    

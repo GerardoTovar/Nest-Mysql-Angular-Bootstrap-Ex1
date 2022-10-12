@@ -7,13 +7,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AutoComponent } from './components/auto/auto.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { FormsModule } from '@angular/forms';
+import { HistorialComponent } from './components/historial/historial.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AutoComponent,
-    ClienteComponent
+    ClienteComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule,

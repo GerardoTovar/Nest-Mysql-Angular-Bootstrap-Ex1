@@ -16,11 +16,7 @@ export class ClienteAutoController {
 
   @Get()
   async getMany() {
-    const data = await this.clienteAutoService.getMany();
-    return {
-      message: 'Peticion Correcta',
-      data,
-    };
+    return await this.clienteAutoService.getMany();
   }
 
   @Get('historial')

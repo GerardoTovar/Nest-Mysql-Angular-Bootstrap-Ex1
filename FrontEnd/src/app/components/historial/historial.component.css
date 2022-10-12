@@ -1,0 +1,15 @@
+.form-group{
+    margin-bottom: 5px !important;
+}
+label{
+    margin-bottom: 0px !important;
+}
+
+.AddBtn{
+    display: block;
+}
+.TableCornerRadios{
+    overflow: hidden;
+    border-radius: 8px;
+    background: black;
+}

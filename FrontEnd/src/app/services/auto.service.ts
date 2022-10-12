@@ -17,8 +17,6 @@ export class AutoService {
   }
 
   createCar(car: Auto): Observable<Auto> {
-    console.log(car);
-    
     return this.http.post<Auto>(`${this.BASE_URL}/auto`,car)
   }
 
@@ -28,5 +26,8 @@ export class AutoService {
 
   deleteCar(id: any): Observable<Auto> {
     return this.http.delete<any>(`${this.BASE_URL}/auto/${id}`)
+  }
+  buyCar(car:any): Observable<any> {
+    return this.http.post<any>(`${this.BASE_URL}/cliente-auto`,car)
   }
 }

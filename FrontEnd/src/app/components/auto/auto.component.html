@@ -29,7 +29,7 @@
           <span *ngIf="car.activo; else elseBlock">SI</span>
           <ng-template #elseBlock>NO</ng-template>
         </td>
-        <td><button type="button" class="btn btn-primary" (click)="openModalUpdate(car)">COMPRAR</button></td>
+        <td><button type="button" class="btn btn-primary" (click)="comprar(car)">COMPRAR</button></td>
         <td><button type="button" class="btn btn-primary" data-target="#ModalNewCar" (click)="openModalUpdate(car)">EDITAR</button></td>
         <td><button type="button" class="btn btn-warning" data-toggle="modal" (click)="openModalDelete(car)">ELIMINAR</button></td>
       </tr>

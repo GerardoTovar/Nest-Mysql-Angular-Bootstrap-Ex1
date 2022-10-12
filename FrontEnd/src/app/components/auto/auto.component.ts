@@ -69,4 +69,16 @@ export class AutoComponent implements OnInit {
     this.openModal(true);
   }
 
+  comprar(car:Auto){
+    const NewCompra = {
+      precio_compra: car.precio,
+      clienteId: "ce51302c-5f7e-4ebd-871d-4c27d3462eb2",
+      autoId: car.id
+    }
+    this.autoService.buyCar(NewCompra).subscribe({
+      next: (res) =>  alert("Auto Comprado"),
+      error: (res) =>  alert(res.error.message)
+    });
+  }
+
 }

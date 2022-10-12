@@ -1,4 +1,6 @@
-<input class="form-control mt-2 mb-2" id="myFilter" type="text" [(ngModel)]="searchText"  (input)="Search()" placeholder="Search by name" /> 
+<div class="p-3">
+    <input class="form-control" type="text" [(ngModel)]="searchText" (input)="Search()" placeholder="Search" /> 
+</div>
 <div class="table-responsive p-3">
   <table class=" TableCornerRadios table table-bordered table-hover" data-filter-control="true" data-show-search-clear-button="true">
     <thead class="thead-dark">

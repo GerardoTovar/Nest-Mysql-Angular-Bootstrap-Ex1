@@ -1,0 +1,106 @@
+<button type="button" class="AddBtn mx-auto btn btn-primary m-3 " data-toggle="modal" (click)="openModal(false)">Agregar Nuevo Auto</button>
+<div class="table-responsive table-responsive-md p-3">
+  <table class=" TableCornerRadios table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">marca</th>
+        <th scope="col">modelo</th>
+        <th scope="col">color</th>
+        <th scope="col">no_pasajeros</th>
+        <th scope="col">no_puertas</th>
+        <th scope="col">precio</th>
+        <th scope="col">activo</th>
+        <th scope="col">EDITAR</th>
+        <th scope="col">ELIMINAR</th>
+      </tr>
+    </thead>
+    <tbody style="background-color: white;">
+      <tr *ngFor="let car of cars">
+        <th scope="row">{{ car.id }}</th>
+        <td>{{ car.marca }}</td>
+        <td>{{ car.modelo }}</td>
+        <td>{{ car.color }}</td>
+        <td>{{ car.no_pasajeros }}</td>
+        <td>{{ car.no_puertas }}</td>
+        <td>{{ car.precio }}</td>
+        <td>
+          <span *ngIf="car.activo; else elseBlock">SI</span>
+          <ng-template #elseBlock>NO</ng-template>
+        </td>
+        <td><button type="button" class="btn btn-primary" data-target="#ModalNewCar" (click)="openModalUpdate(car)">EDITAR</button></td>
+        <td><button type="button" class="btn btn-warning" data-toggle="modal" (click)="openModalDelete(car)">ELIMINAR</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="ModalNewCar" tabindex="-1" role="dialog" aria-labelledby="ModalNewCarLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label  for="marca" class="col-form-label">Marca</label>
+            <select class="form-control" [(ngModel)]="car.marca" name="marca" id="marca">
+              <option>Audi</option>
+              <option>Ford</option>
+              <option>Nissan</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modelo" class="col-form-label">Modelo</label>
+            <input type="text" [(ngModel)]="car.modelo" class="form-control" name="modelo" id="modelo"/>
+          </div>
+          <div class="form-group">
+            <label for="color" class="col-form-label">Color</label>
+            <select class="form-control" [(ngModel)]="car.color" name="color">
+              <option>Rojo</option>
+              <option>Negro</option>
+              <option>Azul</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="no_pasajeros" class="col-form-label">No.Pasajeros</label>
+            <select class="form-control" [(ngModel)]="car.no_pasajeros" name="no_pasajeros" id="no_pasajeros">
+              <option [ngValue]="2">2</option>
+              <option [ngValue]="4">4</option>
+              <option [ngValue]="6">6</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="no_puertas" class="col-form-label">No.Puertas</label>
+            <select class="form-control" [(ngModel)]="car.no_puertas" name="no_puertas" id="no_puertas">
+              <option [ngValue]="2">2</option>
+              <option [ngValue]="4">4</option>
+              <option [ngValue]="6">6</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="precio" class="col-form-label">Precio</label>
+            <input type="number" [(ngModel)]="car.precio" class="form-control" name="precio" id="precio"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-target="#ModalNewCar" (click)="edit ? updateCar() : AddNewCar()">Guardar Auto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="ModalDeleteCar" tabindex="-1" role="dialog" aria-labelledby="ModalDeleteCarLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Estas Seguro De Eliminar Este Auto?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-target="#ModalDeleteCar" (click)="deleteCar()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

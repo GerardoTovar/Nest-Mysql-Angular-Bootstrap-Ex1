@@ -17,11 +17,7 @@ export class ClienteController {
 
   @Get()
   async getMany() {
-    const data = await this.clienteService.getMany();
-    return {
-      message: 'Peticion Correcta',
-      data,
-    };
+    return await this.clienteService.getMany();
   }
 
   /**

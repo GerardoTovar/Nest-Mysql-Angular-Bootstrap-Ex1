@@ -22,11 +22,11 @@ export class AutoService {
     return this.http.post<Auto>(`${this.BASE_URL}/auto`,car)
   }
 
-  updateCar(id:string, car: Auto): Observable<Auto> {
+  updateCar(id:any, car: Auto): Observable<Auto> {
     return this.http.put<Auto>(`${this.BASE_URL}/auto/${id}`,car)
   }
 
-  deleteCar(id: string): Observable<Auto> {
+  deleteCar(id: any): Observable<Auto> {
     return this.http.delete<any>(`${this.BASE_URL}/auto/${id}`)
   }
 }

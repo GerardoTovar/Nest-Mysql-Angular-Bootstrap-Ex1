@@ -1,0 +1,91 @@
+<button type="button" class="AddBtn mx-auto btn btn-primary m-3 " data-toggle="modal" (click)="openModal(false)">Agregar Nuevo Cliente</button>
+<div class="table-responsive p-3">
+  <table class=" TableCornerRadios table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">color</th>
+        <th scope="col">edad</th>
+        <th scope="col">sexo</th>
+        <th scope="col">fecha_registro</th>
+        <th scope="col">direccion</th>
+        <th scope="col">activo</th>
+        <th scope="col">EDITAR</th>
+        <th scope="col">ELIMINAR</th>
+      </tr>
+    </thead>
+    <tbody style="background-color: white;">
+      <tr *ngFor="let cliente of clientes">
+        <th scope="row">{{ cliente.id }}</th>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.apellido }}</td>
+        <td>{{ cliente.edad }}</td>
+        <td>{{ cliente.sexo }}</td>
+        <td>{{ cliente.fecha_registro }}</td>
+        <td>{{ cliente.direccion }}</td>
+        <td>{{ cliente.activo }}</td>
+        <td>
+          <span *ngIf="cliente.activo; else elseBlock">SI</span>
+          <ng-template #elseBlock>NO</ng-template>
+        </td>
+        <td><button type="button" class="btn btn-primary" data-target="#ModalNewCliente" (click)="openModalUpdate(cliente)">EDITAR</button></td>
+        <td><button type="button" class="btn btn-warning" data-toggle="modal" (click)="openModalDelete(cliente)">ELIMINAR</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="ModalNewCliente" tabindex="-1" role="dialog" aria-labelledby="ModalNewClienteLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">nombre</label>
+            <input type="text" [(ngModel)]="cliente.nombre" class="form-control" name="nombre" id="nombre"/>
+          </div>
+          <div class="form-group">
+            <label for="apellido" class="col-form-label">apellido</label>
+            <input type="text" [(ngModel)]="cliente.apellido" class="form-control" name="apellido" id="apellido"/>
+          </div>
+          <div class="form-group">
+            <label for="edad" class="col-form-label">edad</label>
+            <input type="number" [(ngModel)]="cliente.edad" class="form-control" name="edad" id="edad"/>
+          </div>
+          <div class="form-group">
+            <label for="sexo" class="col-form-label">sexo</label>
+            <select class="form-control" [(ngModel)]="cliente.sexo" name="sexo" id="sexo">
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="direccion" class="col-form-label">direccion</label>
+            <input type="direccion" [(ngModel)]="cliente.direccion" class="form-control" name="direccion" id="direccion"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-target="#ModalNewCliente" (click)="edit ? updateCliente() : AddNewCliente()">Guardar Cliente</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="ModalDeleteCliente" tabindex="-1" role="dialog" aria-labelledby="ModalDeleteClienteLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Estas Seguro De Eliminar Este Cliente?</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-target="#ModalDeleteCliente" (click)="deleteCliente()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

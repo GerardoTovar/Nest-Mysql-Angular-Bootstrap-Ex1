@@ -1,8 +1,8 @@
 export interface Auto {
-    id: string;
+    id?: string;
     marca: string;
     modelo: string;
-    color: number;
+    color: string;
     no_pasajeros: number;
     no_puertas: number;
     activo: boolean;

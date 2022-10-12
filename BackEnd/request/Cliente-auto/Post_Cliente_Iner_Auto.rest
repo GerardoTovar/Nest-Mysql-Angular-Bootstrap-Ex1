@@ -1,0 +1,2 @@
+GET http://localhost:3000/cliente-auto/historial
+content-type: application/json

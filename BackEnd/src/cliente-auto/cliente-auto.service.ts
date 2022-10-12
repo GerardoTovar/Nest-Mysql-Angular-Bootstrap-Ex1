@@ -15,6 +15,23 @@ export class ClienteAutoService {
     return await this.clienteAutoRepository.find();
   }
 
+  async getHistorial() {
+    return await this.clienteAutoRepository
+      .createQueryBuilder('ca')
+      .select([
+        'ca.id as id',
+        'nombre',
+        'clienteId',
+        'autoId',
+        'fecha_registro',
+        'precio_compra',
+        'marca',
+      ])
+      .innerJoin('ca.cliente', 'cl', 'ca.clienteId = cl.id')
+      .innerJoin('ca.auto', 'au', 'ca.autoId = au.id')
+      .getRawMany();
+  }
+
   async getOne(id: string) {
     const compra = await this.clienteAutoRepository.findOne({ where: { id } });
     if (!compra) throw new NotFoundException('La Compra no existe');

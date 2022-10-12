@@ -23,6 +23,11 @@ export class ClienteAutoController {
     };
   }
 
+  @Get('historial')
+  getHistorial() {
+    return this.clienteAutoService.getHistorial();
+  }
+
   @Get(':id')
   getOne(@Param('id') id: string) {
     return this.clienteAutoService.getOne(id);
